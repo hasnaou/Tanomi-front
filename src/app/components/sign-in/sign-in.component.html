@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Modern Login Page | Tanomi</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form [formGroup]="formLogin" (ngSubmit)="Login()">
+                <h1>Sign In</h1>
+                <div class="social-icons"></div>
+                <span>use your email and password</span>
+                <input type="text" placeholder="Username" class="form-control" id="username" formControlName="username">
+                <input type="password" placeholder="Password" class="form-control" id="password" formControlName="password">
+                <a routerLink="/forget-password">→ Forget Your Password? ←</a>
+                <button style="background-color: #47b2e4;" type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right" style="background-color: #47b2e4;">
+                    <h1>Hello, Friend!</h1>
+                    <p>Join Us</p>
+                    <button class="hidden" id="register" routerLink="/sign-up">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      const container = document.getElementById('container');
+      const registerBtn = document.getElementById('register');
+      const loginBtn = document.getElementById('login');
+
+      registerBtn.addEventListener('click', () => {
+          container.classList.add("active");
+      });
+
+      loginBtn.addEventListener('click', () => {
+          container.classList.remove("active");
+      });
+    </script>
+</body>
+
+</html>

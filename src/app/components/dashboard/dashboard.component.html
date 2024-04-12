@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="/src/assets/css/simplebar.css">
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="/src/assets/css/feather.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="/src/assets/css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/src/assets/css/app-light.css" id="lightTheme" disabled>
+    <link rel="stylesheet" href="/src/assets/css/app-dark.css" id="darkTheme">
+  </head>
+  <body class="vertical  dark  " style="background-color: #fff;">
+    <div class="wrapper" style="background-color: #fff;">
+      <nav class="topnav navbar navbar-light">
+        <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
+          <i class="fe fe-menu navbar-toggler-icon"></i>
+        </button>
+        <form class="form-inline mr-auto searchform text-muted">
+          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
+        </form>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark">
+              <i class="fe fe-sun fe-16"></i>
+            </a>
+          </li>
+          <li class="nav-item nav-notif">
+            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
+              <span class="fe fe-bell fe-16"></span>
+              <span class="dot dot-md bg-success"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar  style="background-color: #fff;">
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+          <i class="fe fe-x"><span class="sr-only"></span></i>
+        </a>
+        <nav class="vertnav navbar navbar-light" style="background-color: #fff;">
+          <!-- nav bar -->
+          <div class="w-100 mb-4 d-flex">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
+              <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
+                <g>
+                  <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
+                  <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
+                  <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
+                </g>
+              </svg>
+            </a>
+          </div>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item dropdown">
+              <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="nav-link">
+                <i class="fe fe-home fe-16"></i>
+                <span class="ml-3 item-text" style="color: #343a40;">Dashboard</span><span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span style="color: #343a40;">Components</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item dropdown">
+              <a data-toggle="collapse" aria-expanded="false" class="nav-link">
+                <i class="fe fe-user fe-16"></i>
+                <span class="ml-3 item-text" style="color: #343a40;">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#ui-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                <i class="fe fe-box fe-16"></i>
+                <span class="ml-3 item-text" style="color: #343a40;">Projects</span>             
+              </a>
+              <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
+                <li class="nav-item" *ngFor="let project of projects">
+                  <a class="nav-link pl-3"><span class="ml-1 item-text" style="color: #343a40;">{{project.title}}</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pl-3" routerLink="/add-project"><span class="ml-1 item-text" style="color: #343a40;">Create project</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span style="color: #343a40;">Apps</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item dropdown">
+              <a data-toggle="collapse" aria-expanded="false" class="nav-link" routerLink="/task">
+                <i class="fe fe-grid fe-16"></i>
+                <span class="ml-3 item-text" style="color: #343a40;">Tables</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link" routerLink="/events">
+                <i class="fe fe-calendar fe-16"></i>
+                <span class="ml-3 item-text" style="color: #343a40;">Calendar</span>
+              </a>
+            </li>
+          </ul>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span style="color: #343a40;">Documentation</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item w-100">
+              <a class="nav-link" href="../docs/index.html">
+                <i class="fe fe-help-circle fe-16"></i>
+                <span class="ml-3 item-text" style="color: #343a40;">Getting Start</span>
+              </a>
+            </li>
+          </ul>
+          <div class="btn-box w-100 mt-4 mb-1" style="background-color: #fff;">
+            <a target="_blank" class="btn mb-2 btn-primary btn-lg btn-block">
+              <i class="fe fe-12 mx-2"></i><span class="small" style="color: #343a40;" (click)="logout()">logout</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+      <main role="main" class="main-content">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="row align-items-center mb-2">
+                <div class="col">
+                  <h2 class="h5 page-title" style="color: #343a40;">Welcome! </h2>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn" style="background-color: #2c3e50;" routerLink="/add-project">
+                    <span class="fe fe-plus fe-16 mr-3" style="color: #fff;">Create</span>
+                  </button>
+                </div>
+                <div class="col-auto">
+                  <form class="form-inline">
+                    <div class="form-group d-none d-lg-inline">
+                      <label for="reportrange" class="sr-only">Date Ranges</label>
+                      <div id="reportrange" class="px-2 py-2 text-muted">
+                        <span class="small"></span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- widgets -->
+              <div class="row my-4">
+                <div class="col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <small class="text-muted mb-1">Page Views</small>
+                          <h3 class="card-title mb-0">1168</h3>
+                          <p class="small text-muted mb-0"><span class="fe fe-arrow-down fe-12 text-danger"></span><span>-18.9% Last week</span></p>
+                        </div>
+                        <div class="col-4 text-right">
+                          <span class="sparkline inlineline"></span>
+                        </div>
+                      </div> <!-- /. row -->
+                    </div> <!-- /. card-body -->
+                  </div> <!-- /. card -->
+                </div> <!-- /. col -->
+                <div class="col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <small class="text-muted mb-1">Conversion</small>
+                          <h3 class="card-title mb-0">68</h3>
+                          <p class="small text-muted mb-0"><span class="fe fe-arrow-up fe-12 text-warning"></span><span>+1.9% Last week</span></p>
+                        </div>
+                        <div class="col-4 text-right">
+                          <span class="sparkline inlinepie"></span>
+                        </div>
+                      </div> <!-- /. row -->
+                    </div> <!-- /. card-body -->
+                  </div> <!-- /. card -->
+                </div> <!-- /. col -->
+                <div class="col-md-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <small class="text-muted mb-1">Visitors</small>
+                          <h3 class="card-title mb-0">108</h3>
+                          <p class="small text-muted mb-0"><span class="fe fe-arrow-up fe-12 text-success"></span><span>37.7% Last week</span></p>
+                        </div>
+                        <div class="col-4 text-right">
+                          <span class="sparkline inlinebar"></span>
+                        </div>
+                      </div> <!-- /. row -->
+                    </div> <!-- /. card-body -->
+                  </div> <!-- /. card -->
+                </div> <!-- /. col -->
+              </div> <!-- end section -->
+            </div> <!-- /.col -->
+          </div> <!-- .row -->
+        </div> <!-- .container-fluid -->
+        
+      </main> <!-- main -->
+    </div> <!-- .wrapper -->
+    <script src="/src/assets/js/jquery.min.js"></script>
+    <script src="/src/assets/js/popper.min.js"></script>
+    <script src="/src/assets/js/moment.min.js"></script>
+    <script src="/src/assets/js/bootstrap.min.js"></script>
+    <script src="/src/assets/js/simplebar.min.js"></script>
+    <script src='/src/assets/js/daterangepicker.js'></script>
+    <script src='/src/assets/js/jquery.stickOnScroll.js'></script>
+    <script src="/src/assets/js/tinycolor-min.js"></script>
+    <script src="/src/assets/js/config.js"></script>
+    <script src="/src/assets/js/d3.min.js"></script>
+    <script src="/src/assets/js/topojson.min.js"></script>
+    <script src="/src/assets/js/datamaps.all.min.js"></script>
+    <script src="/src/assets/js/datamaps-zoomto.js"></script>
+    <script src="/src/assets/js/datamaps.custom.js"></script>
+    <script src="/src/assets/js/Chart.min.js"></script>
+    <script>
+      /* defind global options */
+      Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
+      Chart.defaults.global.defaultFontColor = colors.mutedColor;
+    </script>
+    <script src="/src/assets/js/gauge.min.js"></script>
+    <script src="/src/assets/js/jquery.sparkline.min.js"></script>
+    <script src="/src/assets/js/apexcharts.min.js"></script>
+    <script src="/src/assets/js/apexcharts.custom.js"></script>
+    <script src="/src/assets/js/apps.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag()
+      {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-56159088-1');
+    </script>
+  </body>
+</html>
