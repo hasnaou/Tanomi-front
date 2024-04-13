@@ -33,6 +33,7 @@ export class SignInComponent implements OnInit {
       next: (data: any) => {
         console.log('Sign-in successful:', data);
         this.userService.storeToken(data.accessToken);
+        this.userService.storeUserId(data.id);
         this.userService.loadProfile(data);
         console.log(data.accessToken);
         this.router.navigate(['/dashboard']);

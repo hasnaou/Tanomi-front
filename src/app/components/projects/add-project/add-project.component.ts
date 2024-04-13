@@ -54,9 +54,9 @@ export class AddProjectComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.submitted = true;
+          this.router.navigate(['/add-task']);
         },
         error: (e) => console.error(e) 
       })
   }
-
 }

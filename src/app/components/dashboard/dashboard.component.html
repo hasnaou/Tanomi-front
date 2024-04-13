@@ -18,6 +18,22 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/src/assets/css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="/src/assets/css/app-dark.css" id="darkTheme">
+    <style>
+      .delete-btn {
+        border: none;
+        background: none;
+        padding: 0;
+        margin-right: 10px; /* Adjust as needed */
+        color: black;
+      }
+
+      .dot {
+          height: 12px;
+          width: 12px;
+          border-radius: 50%;
+          display: inline-block;
+      }
+    </style>
   </head>
   <body class="vertical  dark  " style="background-color: #fff;">
     <div class="wrapper" style="background-color: #fff;">
@@ -29,9 +45,9 @@
           <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
         </form>
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="dark">
-              <i class="fe fe-sun fe-16"></i>
+          <li>
+            <a class="nav-link text-muted my-2" routerLink="/projects" data-toggle="modal" data-target=".modal-notif">
+              <span>My projects</span>
             </a>
           </li>
           <li class="nav-item nav-notif">
@@ -80,13 +96,14 @@
             <li class="nav-item dropdown">
               <a href="#ui-elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                 <i class="fe fe-box fe-16"></i>
-                <span class="ml-3 item-text" style="color: #343a40;">Projects</span>             
+                <span class="ml-3 item-text" style="color: #343a40;">Projects</span>     
               </a>
               <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
                 <li class="nav-item" *ngFor="let project of projects">
-                  <a class="nav-link pl-3"><span class="ml-1 item-text" style="color: #343a40;">{{project.title}}</span>
+                  <a class="nav-link pl-3" [routerLink]="['/add-task', project.id]">
+                     <span class="ml-1 item-text" style="color: #343a40;">{{project.title}}</span>
                   </a>
-                </li>
+                 </li>                 
                 <li class="nav-item">
                   <a class="nav-link pl-3" routerLink="/add-project"><span class="ml-1 item-text" style="color: #343a40;">Create project</span>
                   </a>
@@ -116,7 +133,7 @@
           </p>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item w-100">
-              <a class="nav-link" href="../docs/index.html">
+              <a class="nav-link" routerLink="/sign-up">
                 <i class="fe fe-help-circle fe-16"></i>
                 <span class="ml-3 item-text" style="color: #343a40;">Getting Start</span>
               </a>

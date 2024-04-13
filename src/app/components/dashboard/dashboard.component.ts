@@ -4,6 +4,7 @@ import { Project } from 'src/app/models/project.model';
 import { ProjectService } from 'src/app/services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -27,6 +28,16 @@ export class DashboardComponent implements OnInit {
         next: (data) => {
           this.projects = data;
           console.log(data);
+        },
+        error: (e) => console.error(e)
+      })
+  }
+
+  deleteProject(id: number): void {
+    this.projectService.delete(id)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
         },
         error: (e) => console.error(e)
       })

@@ -17,6 +17,7 @@ export class UserService {
   roles : any;
   username : any;
   accessToken!: string;
+  userId!: string;
 
   // readonly CryptoJS = require('crypto-js');
   // readonly secretKey = 'scscsccscsytuytucc';
@@ -43,6 +44,15 @@ export class UserService {
 
   storeToken(tokenValue: string) {
     localStorage.setItem('token', tokenValue)
+  }
+
+  storeUserId(userId: string) {
+    this.userId = userId;
+    localStorage.setItem('userId', userId);
+  }
+
+  getUserId() {
+    return localStorage.getItem('userId')
   }
 
   getToken() {

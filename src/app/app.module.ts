@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +21,6 @@ import { TaskComponent } from './components/task/task.component';
 import { CalendarInsideComponent } from './components/calendar-inside/calendar-inside.component';
 import { EventsComponent } from './components/events/events.component';
 import { AddEventComponent } from './components/events/add-event/add-event.component';
-import { DragDropTestComponent } from './components/drag-drop-test/drag-drop-test.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AddProjectComponent } from './components/projects/add-project/add-project.component';
 import { AddTaskComponent } from './components/task/add-task/add-task.component';
@@ -39,7 +39,6 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     CalendarInsideComponent,
     EventsComponent,
     AddEventComponent,
-    DragDropTestComponent,
     ProjectsComponent,
     AddProjectComponent,
     AddTaskComponent,
@@ -50,7 +49,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     FullCalendarModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [AuthGuard,
     {
